@@ -1,2 +1,13 @@
 <launch>
+  <arg name="bag" default="true" doc="Enable/Disable bagging of select topics (default: true)" />
+  
+  <!-- launch gazebo world -->
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch" />
+
+  <!-- include walker node -->
+  <!-- @TODO -->
+
+  <!-- (optionally) bag select topics -->
+  <node if="$(arg bag)" name="recorder" pkg="rosbag" type="record" args="-j --exclude '/camera/*'" />
+
 </launch>
