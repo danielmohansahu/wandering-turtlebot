@@ -1,7 +1,1 @@
-
-#include <ros/ros.h>
-
-int main(int argc, char **argv)
-{
-  return 0;
-}
+#include <wandering_turtlebot/walker.h>
