@@ -2,7 +2,13 @@
   <arg name="bag" default="true" doc="Enable/Disable bagging of select topics (default: true)" />
   
   <!-- launch gazebo world -->
-  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch" />
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_house.launch" />
+  
+  <!-- launch fake turtlebot -->
+  <include file="$(find turtlebot3_fake)/launch/turtlebot3_fake.launch" />
+
+  <!-- launch teleoperation -->
+  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" />
 
   <!-- include walker node -->
   <!-- @TODO -->
