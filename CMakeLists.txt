@@ -10,6 +10,10 @@ find_package(
     roscpp
     rosbag
     turtlebot3_gazebo
+    turtlebot3_teleop
+    gazebo_plugins
+    gazebo_ros
+    rviz
 )
 
 ###################################

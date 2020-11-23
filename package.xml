@@ -8,7 +8,13 @@
 
   <depend>roscpp</depend>
   <depend>rosbag</depend>
-  <depend>turtlebot3_gazebo</depend>
+
+  <!-- runtime dependencies -->
+  <exec_depend>turtlebot3_gazebo</exec_depend>
+  <exec_depend>turtlebot3_teleop</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>rviz</exec_depend>
 
   <buildtool_depend>catkin</buildtool_depend>
 
