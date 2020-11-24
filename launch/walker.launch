@@ -6,7 +6,11 @@
   <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_house.launch" />
   
   <!-- include walker node -->
-  <node name="walker" pkg="wandering_turtlebot" type="wandering_turtlebot" />
+  <node name="walker" pkg="wandering_turtlebot" type="wandering_turtlebot" >
+    <arg name="linear_velocity" value="0.22" />
+    <arg name="angular_velocity" value="2.84" />
+    <arg name="obstacle_range" value="0.2" />
+  </node>
 
   <!-- (optionally) launch teleoperation -->
   <include if="$(arg teleop)" file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" />

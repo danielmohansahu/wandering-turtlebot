@@ -2,13 +2,16 @@
 
 namespace walker {
 
-Walker::Walker() : near_obstacle_(false) {
-  // @TODO set / get ros params
-  ros::NodeHandle nh;
+Walker::Walker() : near_obstacle_(false),
+                   linear_velocity_(0.22),
+                   angular_velocity_(2.84),
+                   obstacle_range_(0.25) {
 
-  linear_velocity_ = 0.22;
-  angular_velocity_ = 2.84;
-  obstacle_range_ = 0.25;
+  // set / get ros params
+  ros::NodeHandle nh;
+  nh.getParam("linear_velocity", linear_velocity_, linear_velocity_);
+  nh.getParam("angular_velocity", angular_velocity_, angular_velocity_);
+  nh.getParam("obstacle_range", obstacle_range_, obstacle_range_);
 
   // handy method for check if the sensor is angle is in front of the robot
   auto within_range = [](const double& angle)->bool {
@@ -24,7 +27,6 @@ Walker::Walker() : near_obstacle_(false) {
     1,
     [this, within_range](const auto& msg) {
       // check if we're close to being in collision and set our state appropriately
-
       auto angle = msg->angle_min;
       bool close_hit = false;
       for (auto r : msg->ranges) {
