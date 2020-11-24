@@ -12,7 +12,6 @@ Walker::Walker() : near_obstacle_(false),
                    linear_velocity_(0.22),
                    angular_velocity_(2.84),
                    obstacle_range_(0.25) {
-
   // set / get ros params
   ros::NodeHandle nh;
   nh.getParam("linear_velocity", linear_velocity_, linear_velocity_);
@@ -32,7 +31,7 @@ Walker::Walker() : near_obstacle_(false),
     "scan",
     1,
     [this, within_range](const auto& msg) {
-      // check if we're close to being in collision and set our state appropriately
+      // check if we're close to being in collision and set state
       auto angle = msg->angle_min;
       bool close_hit = false;
       for (auto r : msg->ranges) {
@@ -47,11 +46,10 @@ Walker::Walker() : near_obstacle_(false),
       }
 
       if (close_hit)
-        near_obstacle_ = true;      
+        near_obstacle_ = true;
       else
         near_obstacle_ = false;
-    }
-  );
+    });
 }
 
 void Walker::execute() {
@@ -76,4 +74,4 @@ void Walker::spin() {
   cmd_pub_.publish(cmd);
 }
 
-} //namespace walker
+} // namespace walker

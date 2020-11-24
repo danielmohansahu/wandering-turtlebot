@@ -11,12 +11,12 @@
 
 #pragma once
 
-#include <atomic>
-
 #include <ros/ros.h>
 
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/LaserScan.h>
+
+#include <atomic>
 
 namespace walker {
 
@@ -25,7 +25,7 @@ class Walker {
   /* @brief Constructor */
   Walker();
 
-  /* @brief Core execution method; this should be called regularly by the external thread. */
+  /* @brief Core execution method; this is called by the external thread. */
   void execute();
 
  private:
@@ -48,4 +48,4 @@ class Walker {
   double linear_velocity_, angular_velocity_, obstacle_range_;
 };
 
-} //namespace walker
+} // namespace walker

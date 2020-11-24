@@ -7,8 +7,7 @@
 #include <ros/ros.h>
 #include <wandering_turtlebot/walker.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   ros::init(argc, argv, "walker");
 
   walker::Walker w;
