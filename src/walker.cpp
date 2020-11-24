@@ -1,3 +1,9 @@
+/* @file walker.cpp
+ * @brief Implementation of the Walker class.
+ *
+ * @copyright [2020] Daniel Sahu
+ */
+
 #include <wandering_turtlebot/walker.h>
 
 namespace walker {

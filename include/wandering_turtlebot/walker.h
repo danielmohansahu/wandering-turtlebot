@@ -1,3 +1,14 @@
+/* @file walker.h
+ * @brief Header of the Walker class.
+ *
+ * This class instruments a simple robotic behavior for
+ * traversing a simulated environment. The robot will simply
+ * travel forward until it senses an obstacle (via LaserScan),
+ * at which point it will spin until a clear path is detected.
+ *
+ * @copyright [2020] Daniel Sahu
+ */
+
 #pragma once
 
 #include <atomic>

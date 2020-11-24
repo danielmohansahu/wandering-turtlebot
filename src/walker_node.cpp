@@ -1,5 +1,10 @@
-#include <ros/ros.h>
+/* @file walker_node.cpp
+ * @brief ROS node executable for the Walker class.
+ *
+ * @copyright [2020] Daniel Sahu
+ */
 
+#include <ros/ros.h>
 #include <wandering_turtlebot/walker.h>
 
 int main(int argc, char **argv)
