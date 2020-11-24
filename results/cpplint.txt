@@ -1,0 +1,6 @@
+include/wandering_turtlebot/walker.h:51:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+src/walker.cpp:77:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing include/wandering_turtlebot/walker.h
+Done processing src/walker.cpp
+Done processing src/walker_node.cpp
+Total errors found: 2

@@ -1,0 +1,21 @@
+<launch>
+  <arg name="bag" default="true" doc="Enable/Disable bagging of select topics (default: true)" />
+  <arg name="teleop" default="false" doc="Enable command line teleoperation" />
+  
+  <!-- launch gazebo world -->
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_house.launch" />
+  
+  <!-- include walker node -->
+  <node name="walker" pkg="wandering_turtlebot" type="wandering_turtlebot" >
+    <param name="linear_velocity" value="0.22" />
+    <param name="angular_velocity" value="2.84" />
+    <param name="obstacle_range" value="0.2" />
+  </node>
+
+  <!-- (optionally) launch teleoperation -->
+  <include if="$(arg teleop)" file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch" />
+
+  <!-- (optionally) bag select topics -->
+  <node if="$(arg bag)" name="recorder" pkg="rosbag" type="record" args="-j -a --exclude '/camera/*'" />
+
+</launch>

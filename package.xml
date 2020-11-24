@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>wandering_turtlebot</name>
+  <version>0.1.0</version>
+  <description>The wandering-turtlebot package</description>
+  <maintainer email="danielmohansahu@gmail.com">Daniel M. Sahu</maintainer>
+  <license>MIT</license>
+
+  <depend>roscpp</depend>
+  <depend>rosbag</depend>
+
+  <!-- runtime dependencies -->
+  <exec_depend>turtlebot3_gazebo</exec_depend>
+  <exec_depend>turtlebot3_teleop</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
