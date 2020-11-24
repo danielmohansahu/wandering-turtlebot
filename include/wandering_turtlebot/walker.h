@@ -18,7 +18,6 @@ class Walker {
   void execute();
 
  private:
-
   /* @brief Publish a forward commanded velocity to continue exploring. */
   void forward();
 
@@ -32,7 +31,10 @@ class Walker {
   ros::Subscriber laser_sub_;
 
   /* @brief Core ROS publisher to set command velocity. */
-  ros::Subscriber cmd_pub_;
+  ros::Publisher cmd_pub_;
+
+  // commanded speeds
+  double linear_velocity_, angular_velocity_;
 };
 
 } //namespace walker
