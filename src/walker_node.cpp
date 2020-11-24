@@ -4,5 +4,22 @@
 
 int main(int argc, char **argv)
 {
+  ros::init(argc, argv, "walker");
+
+  walker::Walker w;
+
+  // explore until we're shut down
+  ros::Rate r(10);
+  while (ros::ok()) {
+    // process callbacks
+    ros::spinOnce();
+
+    // execute based on latest feedback
+    w.execute();
+
+    // sleep
+    r.sleep();
+  }
+
   return 0;
 }
