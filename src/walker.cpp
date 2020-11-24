@@ -7,7 +7,7 @@ Walker::Walker() : near_obstacle_(false) {
   ros::NodeHandle nh;
 
   linear_velocity_ = 0.22;
-  angular_velocity_ = 0.1;
+  angular_velocity_ = 2.84;
 
   // initialize core command publisher
   cmd_pub_ = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
