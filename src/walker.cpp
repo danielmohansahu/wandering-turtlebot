@@ -8,6 +8,12 @@ Walker::Walker() : near_obstacle_(false) {
 
   linear_velocity_ = 0.22;
   angular_velocity_ = 2.84;
+  obstacle_range_ = 0.25;
+
+  // handy method for check if the sensor is angle is in front of the robot
+  auto within_range = [](const double& angle)->bool {
+    return (angle < 0.785) || (angle > 5.498);
+  };
 
   // initialize core command publisher
   cmd_pub_ = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
@@ -16,9 +22,23 @@ Walker::Walker() : near_obstacle_(false) {
   laser_sub_ = nh.subscribe<sensor_msgs::LaserScan>(
     "scan",
     1,
-    [this](const auto& msg) {
+    [this, within_range](const auto& msg) {
       // check if we're close to being in collision and set our state appropriately
-      if (true) // @TODO
+
+      auto angle = msg->angle_min;
+      bool close_hit = false;
+      for (auto r : msg->ranges) {
+        // we only care about the angles directly in front of the robot
+        if (within_range(angle) && r <= obstacle_range_) {
+          close_hit = true;
+          break;
+        }
+
+        // increment ranges
+        angle += msg->angle_increment;
+      }
+
+      if (close_hit)
         near_obstacle_ = true;      
       else
         near_obstacle_ = false;

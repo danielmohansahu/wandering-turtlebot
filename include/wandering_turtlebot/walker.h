@@ -33,8 +33,8 @@ class Walker {
   /* @brief Core ROS publisher to set command velocity. */
   ros::Publisher cmd_pub_;
 
-  // commanded speeds
-  double linear_velocity_, angular_velocity_;
+  // commanded speeds and other useful constants
+  double linear_velocity_, angular_velocity_, obstacle_range_;
 };
 
 } //namespace walker
